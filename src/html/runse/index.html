@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>润色</title>
+    <link rel="icon" href="../../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../utils/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../utils/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../utils/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/index.css">
+</head>
+<body>
+    <div class="index">
+        @@include('../../common/header.html',{
+            "time": "润色",
+            "breadcrumb": [
+                {
+                    "text": '首页',
+                    "url": '#',
+                    "isassign": 'true'
+                },
+                {
+                    "text": '我的订单',
+                    "url": '/inquire.html',
+                    "isassign": 'fasle'
+                },
+                {
+                    "text": '常见问题',
+                    "url": '#',
+                    "isassign": 'fasle'
+                }
+            ]
+        })
+        <div class="unimportant clearfix">
+            @@include('../../common/textBox.html',{
+                "h3Left": "论文润色",
+                "h3Right": ",不止于快",
+                "span": "专业、可靠、简洁、易懂的在线论文润色平台"    
+            })
+            <div class="imgBox hidden-xs col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <img src="../../assets/img/unimportant.png" alt="">
+            </div>
+        </div>
+        <div class="main clearfix">
+            <P class="mainHader">填写以下表单，工作人员收到后，会与您取得联系。</P>
+            @@include('../../common/form1.html')
+            <div class="collection" id="fav">
+                <img class="collect" src="../../assets/img/yy-collect.png" alt="">
+                <img class="collect1" src="../../assets/img/yy-collect1.png" alt="">
+                <p>收藏</p>
+            </div>
+        </div>
+        <!-- tips -->
+        <div class="modal fade" id="myModal_s" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="../../assets/img/nothing.png" alt="">
+                    <p>您的资料已经提交成功，</p>
+                    <p>工作人员收到后，会与您取得联系</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        @@include('../../common/footer.html',{
+            "tips": "郑重声明：早润色系统遵守相关保密规定，全站使用HTTPS加密协议，绝不收录和泄露您处理的任何信息，请放心使用",
+            "shop": "Copyright 2020 zaorunse 翻译润色服务 湘ICP备18015598号-5 All rights reserved.",
+        })
+    </div>
+</body>
+<script src="../../utils/js/jquery.min.js"></script>
+<script src="../../utils/js/bootstrap.min.js"></script>
+<script src="../../utils/js/bootstrapValidator.min.js"></script>
+<script src="../../utils/js/bootstrap-select.js"></script>
+<script src="../../utils/js/coco-message.js"></script>
+<script src="../../utils/js/common.js"></script>
+<script src="../../assets/js/index.js"></script>
+<script>
+    var jumpUrl = '/ProjectLibrary/client-side/polish/src'
+    const JUMP_ORDER_PATH = jumpUrl + '/inquire.html';
+    const SPREAD_TOKEN = 'Nk9sRFRlbjYzMjE5NGJmZTBlMTQ=';
+</script>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>润色</title>
+    <link rel="icon" href="../../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../utils/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../utils/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../utils/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/inquire.css">
+</head>
+<body>
+    <div class="index">
+        @@include('../../common/header.html',{
+            "time": "润色",
+            "breadcrumb": [
+                {
+                    "text": '首页',
+                    "url": '#',
+                    "isassign": 'true'
+                },
+                {
+                    "text": '我的订单',
+                    "url": '/inquire.html',
+                    "isassign": 'fasle'
+                },
+                {
+                    "text": '常见问题',
+                    "url": '#',
+                    "isassign": 'fasle'
+                }
+            ]
+        })
+        <div class="unimportant clearfix">
+            @@include('../../common/textBox.html',{
+                "h3Left": "论文润色",
+                "h3Right": ",不止于快",
+                "span": "专业、可靠、简洁、易懂的在线论文润色平台"    
+            })
+            <div class="imgBox hidden-xs col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <img src="../../assets/img/unimportant.png" alt="">
+            </div>
+        </div>
+        <div class="main">
+            <div class="hader clearfix">
+                <span class="title col-sm-1 col-xs-12">订单查询</span>
+                <input placeholder="清输入您的手机号码" type="text" class="form-control phoneInput col-sm-3 col-xs-12" />
+                <div class="col-sm-3 col-xs-12 Verification clearfix">
+                    <input placeholder="请输入您验证码" type="text" class="form-control VerificationCode_s" name="phone_code" />
+                    <div data="client_phone_query_order" class="btn btn-primary VerificationCode">发送验证码</div>
+                </div>
+                <div class="button_s col-sm-2 col-xs-12">
+                    <button type="submit" name="submit" class="btn btn-primary cx">查询</button>
+                </div>
+            </div>
+            <div class="mainContainer" id="systemContent">
+                <div class="Boxmain3">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="th" style="padding-left: 20px;">订单号</th>
+                                <th class="th" style="text-align:center;">业务类型</th>
+                                <th class="th" style="text-align:center;">研究领域</th>
+                                <th class="th" style="text-align:center;">上传时间</th>
+                                <th class="th" style="text-align:center;">状态</th>
+                                <th class="th" style="text-align:center;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table">
+                        </tbody>
+                    </table>
+                    <img class="loading" src="../../assets/img/loading2.gif" alt="正在加载">
+                    <div class="stateless">
+                        <img src="../../assets/img/stateless2.png" alt="">
+                        <p> 暂无订单</p>
+                    </div>
+                </div>
+                <div class="tips_2">
+                    您的稿件我们将在1-2个工作日内润色完毕，请耐心等候。人工润色完成后将可在此页面进行报告下载。
+                </div>
+            </div>
+            <div class="collection" id="fav">
+                <img class="collect" src="../../assets/img/yy-collect.png" alt="">
+                <img class="collect1" src="../../assets/img/yy-collect1.png" alt="">
+                <p>收藏</p>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal_s" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="form-group button_s">
+                        <button class="btn btn-primary determine">确定</button>
+                        <button class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content payBox">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                    </div>
+                    <div class="paymentType clearfix">
+                        <div class="PayType zfbPay selected" data="alipayScan">
+                            <img src="../../assets/img/zfb.png" alt="">
+                            支付宝支付
+                        </div>
+                        <div class="PayType wxPay" data="wxScan">
+                            <img src="../../assets/img/wx.png" alt="">
+                            微信支付
+                        </div>
+                    </div>
+                    <div class="paymentMian">
+                        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+							<div class="mask"></div>
+                            <div id="qrcode"></div>
+                            <div class="loding">
+                                <img src="../../assets/img/loading2.gif">
+                            </div>
+                            <div class="overtime" style="display: none;">
+                                <img style="margin: 30px 0 10px 0;" src="../../assets/img/expired.png" alt="刷新">
+                                <p class="overtime-text">二维码过期,请<span class="Refresh">刷新</span></p>
+                            </div>
+                        </div>
+                        <div id="payInfo" class="payInfo pull-left col-md-8 col-lg-8 col-sm-8 col-xs-12">
+                            <p class="p1">需支付金额: <span>￥</span><span class="prcie">-.--</span></p>
+                            <div class="information">
+                                <p class="p3">订单编号:
+                                    <span class="oid">获取中</span>
+                                    <!-- <span class="p6">复制保存</span>
+                                    <input id="hide" type="text" style='opacity: 0; height: 0;position: absolute;'> -->
+                                </p>
+                                <!-- 输入框为复制保存到剪切板 -->
+                                <p>提   示:  不满一件按一件计算 </p>
+                            </div>
+                            <div class="done">已完成,下一步</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        @@include('../../common/footer.html',{
+            "tips": "郑重声明：早润色系统遵守相关保密规定，全站使用HTTPS加密协议，绝不收录和泄露您处理的任何信息，请放心使用",
+            "shop": "Copyright 2020 zaorunse 翻译润色服务 湘ICP备18015598号-5 All rights reserved.",
+        })
+    </div>
+</body>
+<script src="../../utils/js/jquery.min.js"></script>
+<script src="../../utils/js/bootstrap.min.js"></script>
+<script src="../../utils/js/bootstrapValidator.min.js"></script>
+<script src="../../utils/js/bootstrap-select.js"></script>
+<script src="../../utils/js/coco-message.js"></script>
+<script src="../../utils/js/qrcode.min.js"></script>
+<script src="../../utils/js/common.js"></script>
+<script src="../../assets/js/inquire.js"></script>
+<script>
+    var jumpUrl = '/ProjectLibrary/client-side/polish/src'
+    const JUMP_index_PATH = jumpUrl + '/index.html';
+</script>
+</html>
